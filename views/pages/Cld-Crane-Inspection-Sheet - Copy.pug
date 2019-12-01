@@ -1,0 +1,142 @@
+doctype html
+
+head
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="author" content="Carlos Vasquez")
+    meta(name="description" content)
+    title Crane Inspection
+    link(rel="stylesheet", href="/assets/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/style.css")
+    script(type="text/javascript" src="/assets/js/app.js" defer)
+body
+
+//Page Title
+form(id="inspectionForm" action="")
+    div.container.form-group
+        div.page-header.text-primary <h1>#{title}
+        br
+        .container.row
+            //Crane Assets
+            form-group
+                label(for="crane_assets") Crane
+                .input-group-prepend
+                    label.input-group-text(for="crane_assets") Options
+                    select.custom-select.styled-option(name="type" id="crane-assets")
+                        option(selected) Choose...
+                        //each variable in variables
+                        each asset in Assets
+                            option=asset
+            //Equipment Select: Cab or Remote
+            form-group
+                label(for="sel1") Inspection For ...
+                .input-group-prepend
+                    label.input-group-text(for="sel1") Options
+                    select.custom-select.styled-option(name="type" id="sel1")
+                        option(selected) Choose...
+                        option(value="Cab") Cab
+                        option(value="Remote") Remote
+            form-group
+                label.ml-5(for="opName") Operator
+                input.form-control.ml-5(name="operator" id="opName")
+            //Date and Time
+            .col
+                .row.justify-content-end
+                        label.date-label.mr-3(for="cDate") Date:
+                        input.form-control-plaintext.date-content(name="date" id="cDate" readonly="true")
+                .row.justify-content-end
+                        label.time-label.mr-3(for="cTime") Time:
+                        input.form-control-plaintext.time-content(name="time" id="cTime" readonly="true")
+
+        //Inspection Table
+        .row.py-3.mb-5.border-top.border-bottom.border-3
+            .col.h2 Item Inspected
+            .col.h2 Pass/Fail
+            .col.h2 Comments
+        .row
+            .col Block/Hook
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass1") Pass
+                    input.form-check-input(type="radio" name="passHook" id="rbPass1")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail1") Fail
+                    input.form-check-input(type="radio" name="failHook" id="rbFail1")
+
+            .col 
+                input.form-control(type="text" name="comments1" id="comments1" placeholder="no comments")
+
+        .row
+            .col Limit Switches
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass2") Pass
+                    input.form-check-input(type="radio" name="passSwitch" id="rbPass2")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail") Fail
+                    input.form-check-input(type="radio" name="failSwitch" id="rbFail2")
+
+            .col 
+                input.form-control(type="text" name="comments2" id="comments2" placeholder="no comments")
+
+        .row
+            .col Bridge/Trolley
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass3") Pass
+                    input.form-check-input(type="radio" name="Trolley" id="rbPass3")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail") Fail
+                    input.form-check-input(type="radio" name="Trolley" id="rbFail3")
+
+            .col 
+                input.form-control(type="text" name="comments3" id="comments3" placeholder="no comments")
+        .row
+            .col Horn/Lights
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass") Pass
+                    input.form-check-input(type="radio" name="Horn" id="rbPass4")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail") Fail
+                    input.form-check-input(type="radio" name="Horn" id="rbFail4")
+
+            .col
+                input.form-control(type="text" name="comments4" id="comments4" placeholder="no comments")
+        .row
+            .col Runway Clear
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass") Pass
+                    input.form-check-input(type="radio" name="Runway" id="rbPass5")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail") Fail
+                    input.form-check-input(type="radio" name="Runway" id="rbFail5")
+
+            .col
+                input.form-control(type="text" name="comments5" id="comments5" placeholder="no comments")
+
+        .row
+            .col Hook Turning Device
+            .col
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbPass") Pass
+                    input.form-check-input(type="radio" name="Spinner" id="rbPass6")
+                .form-check.form-check-inline
+                    label.pr-3.align-middle.form-check-label(for="rbFail") Fail
+                    input.form-check-input(type="radio" name="Spinner" id="rbFail6")
+
+            .col
+                input.form-control(type="text" name="comments6" id="comments6" placeholder="no comments")
+
+    <br>
+    .container
+        .row.justify-content-end.mr-3 <button id="submitId" name="submit" type="submit" class="btn btn-primary">Submit</button>
+
+script(src="/jquery/dist/jquery.min.js")
+script(src="/popper.js/dist/umd/popper.min.js")
+script(src="/bootstrap/dist/js/bootstrap.min.js")
+script(src="/bootstrap-select-v4/dist/js/bootstrap-select.min.js")
+script(src="/main.js")
+

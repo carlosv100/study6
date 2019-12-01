@@ -1,0 +1,23 @@
+//- layout.pug
+html
+    head
+        title My Site - #{title}
+        block scripts
+            meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+            meta(http-equiv="X-UA-Compatible", content="ie=edge")
+            meta(name="author" content="Carlos Vasquez")
+            meta(name="description" content)
+            title Crane Inspection
+            link(rel="stylesheet", href="/assets/css/bootstrap.min.css")
+            link(rel="stylesheet", href="/assets/css/style.css")
+            script(type="text/javascript" src="/assets/js/app.js" defer)
+            script(type="text/javascript" src="/assets/js/main.js" defer)
+    body
+    block content
+    p my page
+
+    script(src="/jquery/dist/jquery.min.js")
+    script(src="/popper.js/dist/umd/popper.min.js")
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/bootstrap-select-v4/dist/js/bootstrap-select.min.js")

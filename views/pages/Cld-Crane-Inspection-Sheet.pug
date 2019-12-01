@@ -1,0 +1,70 @@
+doctype html
+
+head
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="author" content="Carlos Vasquez")
+    meta(name="description" content)
+    title Crane Inspection
+    link(rel="stylesheet", href="/assets/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/style.css")
+    script(type="text/javascript" src="/assets/js/app.js" defer)
+    script(type="text/javascript" src="/assets/js/main.js" defer)
+body
+
+//Page Title
+form(id="inspectionForm" action="")
+    div.container.form-group
+        div.page-header.text-primary <h1>#{title}
+        br
+        .container.row
+            //Crane Assets
+            form-group
+                label(for="assets") Crane
+                .input-group-prepend
+                    label.input-group-text(for="assets") Options
+                    select.custom-select.styled-option(name="asset_name" id="assets")
+                        option(selected) Choose...
+                        //each variable in variables
+                        each asset in Assets
+                            option=asset
+            //Equipment Select: Cab or Remote
+            form-group
+                label(for="control_mode") Control Mode ...
+                .input-group-prepend
+                    label.input-group-text(for="control_mode") Options
+                    select.custom-select.styled-option(name="control_mode" id="control_mode")
+                        option(selected) Choose...
+                        option(value="Cab") Cab
+                        option(value="Remote") Remote
+            //Operator
+            form-group
+                label.ml-5(for="operator_name") Operator
+                input.form-control.ml-5(type="text" name="operator_name" id="operator_name")
+            //Date and Time
+            .col
+                .row.justify-content-end
+                    label.date-label.mr-3(for="cDate") Date:
+                    input.form-control-plaintext.date-content(type="text" name="date" id="cDate" readonly="true")
+                .row.justify-content-end
+                    label.time-label.mr-3(for="cTime") Time:
+                    input.form-control-plaintext.time-content(type="text" name="time" id="cTime" readonly="true")
+
+        //Inspection Table
+        .row.py-3.mb-5.border-top.border-bottom.border-3
+            .col.h2 Item Inspected
+            .col.h2 Pass/Fail
+            .col.h2 Comments
+
+        div.constainer(id="items")
+            
+    <br>
+    .container
+        .row.justify-content-end.mr-3 <button id="submitId" name="submit" type="submit" class="btn btn-primary">Submit</button>
+
+script(src="/jquery/dist/jquery.min.js")
+script(src="/popper.js/dist/umd/popper.min.js")
+script(src="/bootstrap/dist/js/bootstrap.min.js")
+script(src="/bootstrap-select-v4/dist/js/bootstrap-select.min.js")
+
